@@ -64,6 +64,7 @@
                                     <segment title="Movies"/>
                                     <segment title="Serials"/>
                                 </segments>
+                                <color key="selectedSegmentTintColor" red="0.54385470359999999" green="0.54385470359999999" blue="0.54385470359999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="didChangeSegment:" destination="dU1-yc-aIe" eventType="valueChanged" id="g5c-0h-wEb"/>
                                 </connections>
@@ -95,12 +96,44 @@
                     <navigationItem key="navigationItem" title="TMDB" id="VhW-O5-AKx"/>
                     <connections>
                         <outlet property="searchBar" destination="LIg-9K-MUv" id="CAR-qj-SGw"/>
+                        <outlet property="segmentedControl" destination="wJD-AL-8pa" id="fbY-dt-CwT"/>
                         <outlet property="tableView" destination="9YJ-ho-eIA" id="eGu-AQ-KMp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3re-vc-ThA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2706" y="1246"/>
+        </scene>
+        <!--Deteils Controller-->
+        <scene sceneID="LeT-xf-cau">
+            <objects>
+                <viewController storyboardIdentifier="DeteilsController" id="tQb-Do-BW7" customClass="DeteilsController" customModule="TMDB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i3m-al-4kd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZY-0n-C2n">
+                                <rect key="frame" x="175" y="67" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wbX-3Y-lpq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VZY-0n-C2n" firstAttribute="top" secondItem="wbX-3Y-lpq" secondAttribute="top" constant="8" id="D5W-IM-6LT"/>
+                            <constraint firstItem="wbX-3Y-lpq" firstAttribute="trailing" secondItem="VZY-0n-C2n" secondAttribute="trailing" constant="176" id="KXd-mS-CEd"/>
+                            <constraint firstItem="VZY-0n-C2n" firstAttribute="leading" secondItem="wbX-3Y-lpq" secondAttribute="leading" constant="175" id="Nv6-dE-OuV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="TitleLabel" destination="VZY-0n-C2n" id="x23-z3-CS7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="keM-27-uZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2706" y="1921"/>
         </scene>
     </scenes>
     <resources>

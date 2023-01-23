@@ -23,14 +23,14 @@ class Cell: UITableViewCell {
     }
     
     func configureWith(media: Media) {
-        titleUILabel.text = media.title ?? "no title"
+        titleUILabel.text = (media.originalTitle ?? "").count > 0 ? media.originalTitle : media.name
         overviewUILabel.text = media.overview ?? "no overview"
         ratingUILabel.text = "\(media.voteAverage ?? 0.0)"
         loadPoster(imageName: media.posterPath ?? "no poster")
     }
     
     private func loadPoster(imageName: String) {
-        posterUIImageView.kf.setImage(with: URL(string: Constants.poster + imageName))
+        posterUIImageView.kf.setImage(with: URL(string: Constants.Poster.defaultPath + imageName))
         print("Load poster: \(String(describing: titleUILabel.text ?? ""))")
     }
 }

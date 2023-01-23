@@ -5,9 +5,14 @@
 //  Created by Sviatoslav Binovskyi on 11.01.2023.
 //
 
-//MARK: Constants
+// MARK: Constants
 
 struct Constants {
+    
+    struct Page {
+        static var current = 0
+        static var total = 0
+    }
     
     struct Network {
         static let baseURL = "https://api.themoviedb.org/3/"
@@ -15,10 +20,17 @@ struct Constants {
         static let trendingMovie = "trending/movie/week?api_key="
         static let trandingTv = "trending/tv/week?api_key="
     }
-    
     struct Nib {
         static let cell = "Cell"
     }
-    
-    static let poster = "https://image.tmdb.org/t/p/w1280"
+    struct Poster {
+        static let defaultPath = "https://image.tmdb.org/t/p/w1280"
+    }
+    struct Print {
+        static let NibRegister = "Nib register"
+        static let segmentedIndexZero = "SegmentedIndex = 0"
+        static let segmentedIndexOne = "SegmentedIndex = 1"
+        static let getTrendMovies = "Get trending movies"
+        static let getTrendTv = "Get trending tv"
+    }
 }

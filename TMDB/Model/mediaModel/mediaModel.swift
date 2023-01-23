@@ -27,6 +27,7 @@ struct Media : Codable {
     let backdropPath : String?
     let id : Int?
     let title : String?
+    let name : String?
     let originalLanguage : String?
     let originalTitle : String?
     let overview : String?
@@ -35,9 +36,11 @@ struct Media : Codable {
     let genreIds : [Int]?
     let popularity : Double?
     let releaseDate : String?
+    let firstAirDate : String?
     let video : Bool?
     let voteAverage : Double?
     let voteCount : Int?
+    let originCountry : [String]?
     
     enum CodingKeys: String, CodingKey {
         
@@ -45,6 +48,7 @@ struct Media : Codable {
         case backdropPath = "backdrop_path"
         case id = "id"
         case title = "title"
+        case name = "name"
         case originalLanguage = "original_language"
         case originalTitle = "original_title"
         case overview = "overview"
@@ -52,10 +56,12 @@ struct Media : Codable {
         case mediaType = "media_type"
         case genreIds = "genre_ids"
         case popularity = "popularity"
+        case firstAirDate = "first_air_date"
         case releaseDate = "release_date"
         case video = "video"
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
+        case originCountry = "origin_country"
         
     }
 }

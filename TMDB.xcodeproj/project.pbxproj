@@ -21,6 +21,7 @@
 		F37C5D93296EBCE800C8906F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F37C5D91296EBCE800C8906F /* LaunchScreen.storyboard */; };
 		F37C5D9C296EBDE900C8906F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C5D9B296EBDE900C8906F /* Constants.swift */; };
 		F37C5DA1296EBE3000C8906F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C5DA0296EBE3000C8906F /* NetworkManager.swift */; };
+		F3BFA182297E9EFA00E9D685 /* DeteilsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFA181297E9EFA00E9D685 /* DeteilsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		F37C5D94296EBCE800C8906F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F37C5D9B296EBDE900C8906F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F37C5DA0296EBE3000C8906F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F3BFA181297E9EFA00E9D685 /* DeteilsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilsController.swift; sourceTree = "<group>"; };
 		F889964A1637287AE58CD8C0 /* Pods_TMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -156,6 +158,7 @@
 			children = (
 				F37C5D8A296EBCE800C8906F /* ViewController.swift */,
 				F33CAECE2971636A007AF7B3 /* extension ViewController.swift */,
+				F3BFA181297E9EFA00E9D685 /* DeteilsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3BFA182297E9EFA00E9D685 /* DeteilsController.swift in Sources */,
 				F33CAECF2971636A007AF7B3 /* extension ViewController.swift in Sources */,
 				F37C5D8B296EBCE800C8906F /* ViewController.swift in Sources */,
 				F37C5D87296EBCE800C8906F /* AppDelegate.swift in Sources */,

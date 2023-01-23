@@ -7,6 +7,39 @@
 
 import UIKit
 
+extension ViewController {
+    
+    
+    //MARK: Nib register
+     func nib() {
+        let nib = UINib(nibName: Constants.Nib.cell, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: Constants.Nib.cell)
+         print(Constants.Print.NibRegister)
+    }
+    
+    //MARK: request trending movies
+    func requestTrendMovies() {
+        
+        let url = Constants.Network.baseURL + Constants.Network.trendingMovie + Constants.Network.keyAPI
+        NetworkManager().loadMovies(url: url) { mediaArray in
+            self.filteredData = mediaArray
+            self.tableView.reloadData()
+            print(Constants.Print.getTrendMovies)
+    }
+}
+    
+    //MARK: request trending tv
+    func requestTrendTv() {
+        
+        let url = Constants.Network.baseURL + Constants.Network.trandingTv + Constants.Network.keyAPI
+        NetworkManager().loadMovies(url: url) { mediaArray in
+            self.filteredData = mediaArray
+            self.tableView.reloadData()
+            print(Constants.Print.getTrendTv)
+        }
+    }
+}
+
 //MARK: UITableViewDataSource
 
 extension ViewController: UITableViewDataSource {
@@ -27,44 +60,23 @@ extension ViewController: UITableViewDataSource {
 
 //MARK: UITableViewDelegate
 extension ViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return 300
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+            if let deteilsController = main.instantiateViewController(withIdentifier: "DeteilsController") as? DeteilsController {
+                deteilsController.movie = filteredData[indexPath.row]
+                navigationController?.pushViewController(deteilsController, animated: true)
+            } else {
+                
+            }
+        }
+    }
 }
+    
 
-extension ViewController {
-    
-    //MARK: Nib register
-     func nib() {
-        let nib = UINib(nibName: Constants.Nib.cell, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: Constants.Nib.cell)
-        print("Register Nib")
-    }
-    
-    //MARK: request trending movies
-     func requestTrendMovies() {
-        
-        let url = Constants.Network.baseURL + Constants.Network.trendingMovie + Constants.Network.keyAPI
-        
-        NetworkManager().loadMovies(url: url) { mediaArray in
-            self.filteredData = mediaArray
-            self.tableView.reloadData()
-            print("Get trending movies")
-        }
-    }
-    
-    func requestTrendTv() {
-        
-        let url = Constants.Network.baseURL + Constants.Network.trandingTv + Constants.Network.keyAPI
-        
-        NetworkManager().loadMovies(url: url) { mediaArray in
-            self.filteredData = mediaArray
-            self.tableView.reloadData()
-            print("Get trending tv")
-        }
-    }
-    
-    
-}

@@ -6,35 +6,29 @@
 //
 
 import UIKit
-
-//MARK: ViewController with trending Movies/Serials and search
+//MARK: Show trending Movies/Serials and Search
 class ViewController: UIViewController {
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     var filteredData: [Media] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         nib()
         requestTrendMovies()
-    }
-    
-    @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
         
-        if sender.selectedSegmentIndex == 0 {
-            
+    }
+    //MARK: Switch between movies and tv
+    @IBAction func didChangeSegment(_ sender: Any) {
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
             requestTrendMovies()
-            print("segmentedIndex 0")
+            print(Constants.Print.segmentedIndexZero)
         } else {
             requestTrendTv()
-            print("segmentedIndex 1")
+            print(Constants.Print.segmentedIndexOne)
         }
     }
-    
-    
-    
 }
 
