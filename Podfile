@@ -3,5 +3,6 @@ target 'TMDB' do
 
 pod 'Alamofire', '~> 5.6.4'
 pod 'Kingfisher', '~> 7.0'
+pod 'youtube-ios-player-helper', '~> 1.0.4'
 
 end

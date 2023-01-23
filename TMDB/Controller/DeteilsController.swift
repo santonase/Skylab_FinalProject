@@ -9,14 +9,17 @@ import UIKit
 
 class DeteilsController: UIViewController {
     
-    @IBOutlet weak var TitleLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var backgroundUIImageView: UIImageView!
+        
+    
     
     var movie: Media?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        TitleLabel.text = movie?.title
+        configureWithMovie()
+        backgroundUIImageView.applyBlurEffect()
     }
-    
 }

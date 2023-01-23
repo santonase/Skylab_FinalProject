@@ -33,4 +33,9 @@ struct Constants {
         static let getTrendMovies = "Get trending movies"
         static let getTrendTv = "Get trending tv"
     }
+    
+    struct View {
+        static let main = "Main"
+        static let deteilsController = "DeteilsController"
+    }
 }

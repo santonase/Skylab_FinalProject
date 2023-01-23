@@ -66,17 +66,21 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if segmentedControl.selectedSegmentIndex == 0 {
-        
-        let main = UIStoryboard(name: "Main", bundle: nil)
-            if let deteilsController = main.instantiateViewController(withIdentifier: "DeteilsController") as? DeteilsController {
+        let main = UIStoryboard(name: Constants.View.main, bundle: nil)
+        if let deteilsController = main.instantiateViewController(withIdentifier: Constants.View.deteilsController) as? DeteilsController {
+    
+            if (segmentedControl.selectedSegmentIndex == 0) {
+                
                 deteilsController.movie = filteredData[indexPath.row]
                 navigationController?.pushViewController(deteilsController, animated: true)
-            } else {
                 
+            } else if (segmentedControl.selectedSegmentIndex == 1) {
+                
+                deteilsController.movie = filteredData[indexPath.row]
+                navigationController?.pushViewController(deteilsController, animated: true)
             }
         }
     }
 }
-    
+
 

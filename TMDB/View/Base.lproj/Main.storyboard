@@ -112,28 +112,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZY-0n-C2n">
-                                <rect key="frame" x="175" y="67" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZP8-MO-rNK">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.CornerRadius" value="40"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZY-0n-C2n">
+                                <rect key="frame" x="176" y="67" width="41" height="24.666666666666671"/>
+                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NAV-aA-rTN" userLabel="Trailer">
+                                <rect key="frame" x="0.0" y="107.66666666666669" width="393" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="1Aw-gL-Hfd"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wbX-3Y-lpq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ZP8-MO-rNK" firstAttribute="top" secondItem="i3m-al-4kd" secondAttribute="top" id="0FU-gI-REk"/>
+                            <constraint firstItem="NAV-aA-rTN" firstAttribute="leading" secondItem="wbX-3Y-lpq" secondAttribute="leading" id="5Ld-uK-jOB"/>
                             <constraint firstItem="VZY-0n-C2n" firstAttribute="top" secondItem="wbX-3Y-lpq" secondAttribute="top" constant="8" id="D5W-IM-6LT"/>
-                            <constraint firstItem="wbX-3Y-lpq" firstAttribute="trailing" secondItem="VZY-0n-C2n" secondAttribute="trailing" constant="176" id="KXd-mS-CEd"/>
-                            <constraint firstItem="VZY-0n-C2n" firstAttribute="leading" secondItem="wbX-3Y-lpq" secondAttribute="leading" constant="175" id="Nv6-dE-OuV"/>
+                            <constraint firstItem="VZY-0n-C2n" firstAttribute="centerX" secondItem="i3m-al-4kd" secondAttribute="centerX" id="Esj-9i-t6d"/>
+                            <constraint firstItem="NAV-aA-rTN" firstAttribute="top" secondItem="VZY-0n-C2n" secondAttribute="bottom" constant="16" id="TGf-Hp-NdT"/>
+                            <constraint firstItem="ZP8-MO-rNK" firstAttribute="leading" secondItem="wbX-3Y-lpq" secondAttribute="leading" id="jfj-Zl-wgi"/>
+                            <constraint firstAttribute="bottom" secondItem="ZP8-MO-rNK" secondAttribute="bottom" id="jh4-wu-Tya"/>
+                            <constraint firstItem="wbX-3Y-lpq" firstAttribute="trailing" secondItem="ZP8-MO-rNK" secondAttribute="trailing" id="nVI-WT-ohD"/>
+                            <constraint firstItem="wbX-3Y-lpq" firstAttribute="trailing" secondItem="NAV-aA-rTN" secondAttribute="trailing" id="pzc-Nl-Qpo"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="TitleLabel" destination="VZY-0n-C2n" id="x23-z3-CS7"/>
+                        <outlet property="backgroundUIImageView" destination="ZP8-MO-rNK" id="cUR-jS-H5A"/>
+                        <outlet property="titleLabel" destination="VZY-0n-C2n" id="LRE-02-DEz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="keM-27-uZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2706" y="1921"/>
+            <point key="canvasLocation" x="-2706.1068702290077" y="1920.4225352112678"/>
         </scene>
     </scenes>
     <resources>
