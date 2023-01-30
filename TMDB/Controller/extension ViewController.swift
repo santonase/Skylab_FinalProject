@@ -18,10 +18,10 @@ extension ViewController {
     }
     
     //MARK: request trending movies
-    func requestTrendMovies() {
+    func requestTrendMovies(page: Int) {
         
-        let url = Constants.Network.baseURL + Constants.Network.trendingMovie + Constants.Network.keyAPI
-        NetworkManager().loadMovies(url: url) { mediaArray in
+        let url = Constants.Network.baseURL + Constants.Network.trendingMovie + Constants.Network.keyAPI + "&page=\(page)"
+        NetworkManager().loadMovies(url: url, page: page) { mediaArray in
             self.filteredData = mediaArray
             self.tableView.reloadData()
             print(Constants.Print.getTrendMovies)
@@ -32,7 +32,7 @@ extension ViewController {
     func requestTrendTv() {
         
         let url = Constants.Network.baseURL + Constants.Network.trandingTv + Constants.Network.keyAPI
-        NetworkManager().loadMovies(url: url) { mediaArray in
+        NetworkManager().loadTv(url: url) { mediaArray in
             self.filteredData = mediaArray
             self.tableView.reloadData()
             print(Constants.Print.getTrendTv)
@@ -50,7 +50,9 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Nib.cell, for: indexPath) as? Cell {
+        if let cell = tableView.dequeueReusableCell(
+            withIdentifier: Constants.Nib.cell,
+            for: indexPath) as? Cell {
             cell.configureWith(media: filteredData[indexPath.row])
             return cell
         }
@@ -70,15 +72,21 @@ extension ViewController: UITableViewDelegate {
         if let deteilsController = main.instantiateViewController(withIdentifier: Constants.View.deteilsController) as? DeteilsController {
     
             if (segmentedControl.selectedSegmentIndex == 0) {
-                
                 deteilsController.movie = filteredData[indexPath.row]
                 navigationController?.pushViewController(deteilsController, animated: true)
                 
             } else if (segmentedControl.selectedSegmentIndex == 1) {
-                
                 deteilsController.movie = filteredData[indexPath.row]
                 navigationController?.pushViewController(deteilsController, animated: true)
             }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == filteredData.count - 1, ViewController.currentPage < ViewController.totalPages {
+            print("Next Page: \(ViewController.currentPage)")
+            requestTrendMovies(page: ViewController.currentPage + 1)
+            tableView.reloadData()
         }
     }
 }
