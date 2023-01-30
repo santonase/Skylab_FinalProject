@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "C3E65F36-F1F5-4AEC-AE51-E0357385EB97"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TMDB/Model/NetworkManager.swift"
@@ -20,33 +20,33 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "C3E65F36-F1F5-4AEC-AE51-E0357385EB97 - 2b2d33ff3479974f"
+                  uuid = "C3E65F36-F1F5-4AEC-AE51-E0357385EB97 - b6f5558cfb3ea93f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TMDB.NetworkManager.getTrailer(movieId: Swift.Int, mediaType: TMDB.MediaType, completion: (Swift.Array&lt;TMDB.TrailerResult&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "TMDB.NetworkManager.getMovieTrailer(movieId: Swift.Int, completion: (Swift.Array&lt;TMDB.TrailerResult&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "TMDB"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sviatoslavbinovskyi/Desktop/projects/Skylab/TMDB/TMDB/Model/NetworkManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "452">
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "304">
                </Location>
                <Location
-                  uuid = "C3E65F36-F1F5-4AEC-AE51-E0357385EB97 - c69453341516f4d9"
+                  uuid = "C3E65F36-F1F5-4AEC-AE51-E0357385EB97 - ab0dc4aafbb35494"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;TMDB.TrailerModel, Alamofire.AFError&gt;) -&gt; () in TMDB.NetworkManager.getTrailer(movieId: Swift.Int, mediaType: TMDB.MediaType, completion: (Swift.Array&lt;TMDB.TrailerResult&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;TMDB.TrailerModel, Alamofire.AFError&gt;) -&gt; () in TMDB.NetworkManager.getMovieTrailer(movieId: Swift.Int, completion: (Swift.Array&lt;TMDB.TrailerResult&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "TMDB"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sviatoslavbinovskyi/Desktop/projects/Skylab/TMDB/TMDB/Model/NetworkManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
                   offsetFromSymbolStart = "128">
                </Location>
             </Locations>
@@ -56,7 +56,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "CF51BC66-8DAB-4766-B0EF-D6C7A5F5FC5F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TMDB/Model/NetworkManager.swift"
@@ -68,33 +68,33 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "CF51BC66-8DAB-4766-B0EF-D6C7A5F5FC5F - c69453341516f4d9"
+                  uuid = "CF51BC66-8DAB-4766-B0EF-D6C7A5F5FC5F - ab0dc4aafbb35494"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;TMDB.TrailerModel, Alamofire.AFError&gt;) -&gt; () in TMDB.NetworkManager.getTrailer(movieId: Swift.Int, mediaType: TMDB.MediaType, completion: (Swift.Array&lt;TMDB.TrailerResult&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;TMDB.TrailerModel, Alamofire.AFError&gt;) -&gt; () in TMDB.NetworkManager.getMovieTrailer(movieId: Swift.Int, completion: (Swift.Array&lt;TMDB.TrailerResult&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "TMDB"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sviatoslavbinovskyi/Desktop/projects/Skylab/TMDB/TMDB/Model/NetworkManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
                   offsetFromSymbolStart = "128">
                </Location>
                <Location
-                  uuid = "CF51BC66-8DAB-4766-B0EF-D6C7A5F5FC5F - c69453341516f4d9"
+                  uuid = "CF51BC66-8DAB-4766-B0EF-D6C7A5F5FC5F - ab0dc4aafbb35494"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;TMDB.TrailerModel, Alamofire.AFError&gt;) -&gt; () in TMDB.NetworkManager.getTrailer(movieId: Swift.Int, mediaType: TMDB.MediaType, completion: (Swift.Array&lt;TMDB.TrailerResult&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;TMDB.TrailerModel, Alamofire.AFError&gt;) -&gt; () in TMDB.NetworkManager.getMovieTrailer(movieId: Swift.Int, completion: (Swift.Array&lt;TMDB.TrailerResult&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "TMDB"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sviatoslavbinovskyi/Desktop/projects/Skylab/TMDB/TMDB/Model/NetworkManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
                   offsetFromSymbolStart = "196">
                </Location>
             </Locations>
@@ -104,7 +104,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "6B571E66-A656-44F2-A904-D6D50776C566"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TMDB/Model/NetworkManager.swift"
@@ -120,7 +120,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "BA72F866-3ABB-44BD-9E17-DE202950FE1B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TMDB/Model/NetworkManager.swift"
@@ -129,6 +129,86 @@
             startingLineNumber = "56"
             endingLineNumber = "56"
             landmarkName = "getMovieTrailer(movieId:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A58926A9-6518-4C5E-9762-FAB9273E4C33"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TMDB/Controller/DeteilsController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "saveMovieToRealm(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "38F06C33-3A12-49F5-91A9-BD47E51E4F87"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TMDB/Controller/DeteilsController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "saveMovieToRealm(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "43AADDEF-FA74-4167-B240-1F367D35E873"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TMDB/Controller/SavedMoviesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4E5C3F43-6F98-4917-ABA0-8A1C1938541A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TMDB/Controller/SavedMoviesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6E62D778-60BE-49FB-81F7-916F754ECDED"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TMDB/Controller/SavedMoviesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -13,11 +13,8 @@ class Cell: UITableViewCell {
     @IBOutlet weak var titleUILabel: UILabel!
     @IBOutlet weak var overviewUILabel: UILabel!
     @IBOutlet weak var posterUIImageView: UIImageView!
-    
     @IBOutlet weak var ratingUILabel: UILabel!
-    
-    
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -32,5 +29,12 @@ class Cell: UITableViewCell {
     private func loadPoster(imageName: String) {
         posterUIImageView.kf.setImage(with: URL(string: Constants.Poster.defaultPath + imageName))
         print("Load poster: \(String(describing: titleUILabel.text ?? ""))")
+    }
+    
+    func configureWith(movie: MovieRealm) {
+        titleUILabel.text = movie.title
+        overviewUILabel.text = movie.overview
+        ratingUILabel.text = "\(movie.rating)"
+        loadPoster(imageName: movie.posterPath)
     }
 }

@@ -29,4 +29,10 @@ class DeteilsController: UIViewController {
         playerView.layer.masksToBounds = true
         playerView.layer.cornerRadius = 10
     }
+    
+    @IBAction func saveMovieToRealm(_ sender: Any) {
+        DataManager.shared.save(movie: movie)
+        print("Save movie")
+    }
+    
 }

@@ -50,9 +50,7 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(
-            withIdentifier: Constants.Nib.cell,
-            for: indexPath) as? Cell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Nib.cell, for: indexPath) as? Cell {
             cell.configureWith(media: filteredData[indexPath.row])
             return cell
         }

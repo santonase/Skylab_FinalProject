@@ -26,6 +26,7 @@
 		F3CB50D7298051140024969F /* TrailerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB50D6298051140024969F /* TrailerModel.swift */; };
 		F3DA629D2982F213003C6781 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA629C2982F213003C6781 /* DataManager.swift */; };
 		F3DA62A02982F311003C6781 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA629F2982F311003C6781 /* RealmModel.swift */; };
+		F3E6F0952987CAD30012B80E /* SavedMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E6F0942987CAD30012B80E /* SavedMoviesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		F3CB50D6298051140024969F /* TrailerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerModel.swift; sourceTree = "<group>"; };
 		F3DA629C2982F213003C6781 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F3DA629F2982F311003C6781 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		F3E6F0942987CAD30012B80E /* SavedMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMoviesViewController.swift; sourceTree = "<group>"; };
 		F889964A1637287AE58CD8C0 /* Pods_TMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -168,6 +170,7 @@
 			children = (
 				F37C5D8A296EBCE800C8906F /* ViewController.swift */,
 				F3BFA181297E9EFA00E9D685 /* DeteilsController.swift */,
+				F3E6F0942987CAD30012B80E /* SavedMoviesViewController.swift */,
 				F33CAECE2971636A007AF7B3 /* extension ViewController.swift */,
 				F3BFA183297EBC2B00E9D685 /* extension DeteilsController.swift */,
 			);
@@ -314,6 +317,7 @@
 				F37C5D8B296EBCE800C8906F /* ViewController.swift in Sources */,
 				F37C5D87296EBCE800C8906F /* AppDelegate.swift in Sources */,
 				F37C5DA1296EBE3000C8906F /* NetworkManager.swift in Sources */,
+				F3E6F0952987CAD30012B80E /* SavedMoviesViewController.swift in Sources */,
 				F33CAED329716BDD007AF7B3 /* mediaModel.swift in Sources */,
 				F3CB50D7298051140024969F /* TrailerModel.swift in Sources */,
 				F31495962975E386005145C8 /* SearchBar.swift in Sources */,
