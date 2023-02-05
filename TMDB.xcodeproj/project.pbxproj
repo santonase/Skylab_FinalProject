@@ -11,7 +11,6 @@
 		F31495962975E386005145C8 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31495952975E386005145C8 /* SearchBar.swift */; };
 		F33CAECC2971620D007AF7B3 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33CAECA2971620D007AF7B3 /* Cell.swift */; };
 		F33CAECD2971620D007AF7B3 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F33CAECB2971620D007AF7B3 /* Cell.xib */; };
-		F33CAECF2971636A007AF7B3 /* extension ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33CAECE2971636A007AF7B3 /* extension ViewController.swift */; };
 		F33CAED329716BDD007AF7B3 /* mediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33CAED229716BDD007AF7B3 /* mediaModel.swift */; };
 		F37C5D87296EBCE800C8906F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C5D86296EBCE800C8906F /* AppDelegate.swift */; };
 		F37C5D89296EBCE800C8906F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C5D88296EBCE800C8906F /* SceneDelegate.swift */; };
@@ -22,7 +21,6 @@
 		F37C5D9C296EBDE900C8906F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C5D9B296EBDE900C8906F /* Constants.swift */; };
 		F37C5DA1296EBE3000C8906F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C5DA0296EBE3000C8906F /* NetworkManager.swift */; };
 		F3BFA182297E9EFA00E9D685 /* DeteilsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFA181297E9EFA00E9D685 /* DeteilsController.swift */; };
-		F3BFA184297EBC2B00E9D685 /* extension DeteilsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFA183297EBC2B00E9D685 /* extension DeteilsController.swift */; };
 		F3CB50D7298051140024969F /* TrailerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB50D6298051140024969F /* TrailerModel.swift */; };
 		F3DA629D2982F213003C6781 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA629C2982F213003C6781 /* DataManager.swift */; };
 		F3DA62A02982F311003C6781 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA629F2982F311003C6781 /* RealmModel.swift */; };
@@ -35,7 +33,6 @@
 		F31495952975E386005145C8 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		F33CAECA2971620D007AF7B3 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		F33CAECB2971620D007AF7B3 /* Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
-		F33CAECE2971636A007AF7B3 /* extension ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension ViewController.swift"; sourceTree = "<group>"; };
 		F33CAED229716BDD007AF7B3 /* mediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mediaModel.swift; sourceTree = "<group>"; };
 		F37C5D83296EBCE800C8906F /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37C5D86296EBCE800C8906F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +45,6 @@
 		F37C5D9B296EBDE900C8906F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F37C5DA0296EBE3000C8906F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F3BFA181297E9EFA00E9D685 /* DeteilsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilsController.swift; sourceTree = "<group>"; };
-		F3BFA183297EBC2B00E9D685 /* extension DeteilsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension DeteilsController.swift"; sourceTree = "<group>"; };
 		F3CB50D6298051140024969F /* TrailerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerModel.swift; sourceTree = "<group>"; };
 		F3DA629C2982F213003C6781 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F3DA629F2982F311003C6781 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
@@ -171,8 +167,6 @@
 				F37C5D8A296EBCE800C8906F /* ViewController.swift */,
 				F3BFA181297E9EFA00E9D685 /* DeteilsController.swift */,
 				F3E6F0942987CAD30012B80E /* SavedMoviesViewController.swift */,
-				F33CAECE2971636A007AF7B3 /* extension ViewController.swift */,
-				F3BFA183297EBC2B00E9D685 /* extension DeteilsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -310,10 +304,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3BFA184297EBC2B00E9D685 /* extension DeteilsController.swift in Sources */,
 				F3DA62A02982F311003C6781 /* RealmModel.swift in Sources */,
 				F3BFA182297E9EFA00E9D685 /* DeteilsController.swift in Sources */,
-				F33CAECF2971636A007AF7B3 /* extension ViewController.swift in Sources */,
 				F37C5D8B296EBCE800C8906F /* ViewController.swift in Sources */,
 				F37C5D87296EBCE800C8906F /* AppDelegate.swift in Sources */,
 				F37C5DA1296EBE3000C8906F /* NetworkManager.swift in Sources */,

@@ -33,7 +33,6 @@ extension SavedMoviesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = SavedMoviesTableView.dequeueReusableCell(withIdentifier: Constants.Nib.cell, for: indexPath) as? Cell {
             cell.configureWith(movie: savedMovies[indexPath.row])
-//            cell.textLabel?.text = savedMovies[indexPath.row].title
             return cell
         }
         return UITableViewCell()
@@ -43,6 +42,14 @@ extension SavedMoviesViewController: UITableViewDataSource {
 extension SavedMoviesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let main = UIStoryboard(name: Constants.View.main, bundle: nil)
+        if let deteilsController = main.instantiateViewController(withIdentifier: Constants.View.deteilsController) as? DeteilsController {
+            deteilsController.movieFromRealm = savedMovies[indexPath.row]
+            navigationController?.pushViewController(deteilsController, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

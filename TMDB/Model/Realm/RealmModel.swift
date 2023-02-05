@@ -12,4 +12,6 @@ class MovieRealm: Object {
     @Persisted var overview = ""
     @Persisted var rating = 0.0
     @Persisted var posterPath = ""
+    @Persisted var trailer = 0
+    @Persisted var mediaType = ""
 }

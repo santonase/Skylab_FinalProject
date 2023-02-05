@@ -17,7 +17,7 @@ struct NetworkManager {
     
     
     // MARK: request trending movies
-    func loadMovies(url: String, page: Int, completion: @escaping([Media]) -> Void) {
+    func loadMovies(url: String, completion: @escaping([Media]) -> Void) {
         AF.request(url).responseDecodable(of: MediaModel.self) { response in
             let mediaData = response
             completion(mediaData.value?.results ?? [])

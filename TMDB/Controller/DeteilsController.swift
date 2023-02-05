@@ -18,6 +18,7 @@ class DeteilsController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     var movie: Media?
+    var movieFromRealm: MovieRealm?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,6 @@ class DeteilsController: UIViewController {
         configureWithMovie()
         backgroundUIImageView.applyBlurEffect()
         loadTrailer()
-        
         playerView.layer.masksToBounds = true
         playerView.layer.cornerRadius = 10
     }
@@ -34,5 +34,82 @@ class DeteilsController: UIViewController {
         DataManager.shared.save(movie: movie)
         print("Save movie")
     }
+}
+
+extension DeteilsController {
     
+     func configureWithMovie() {
+         if let movieTitle = (movie?.title ?? "").count > 0 ? movie?.title : movie?.name {
+             titleLabel.text = movieTitle
+         } else if let movieRealmTitle = movieFromRealm?.title {
+             titleLabel.text = movieRealmTitle
+         }
+        print("Did select: \(String(describing: titleLabel.text ?? ""))")
+                  
+         loadPoster(imageName: ((movie?.posterPath ?? "").count > 0 ? movie?.posterPath : movieFromRealm?.posterPath) ?? "")
+
+         
+         if let releaseDate = movie?.releaseDate?.count ?? 0 > 0 ? movie?.releaseDate : movie?.firstAirDate {
+             ReleaseLabel.text = releaseDate
+             ReleaseLabel.text = "Release date: \(releaseDate)"
+         }
+         
+         if let rating = movie?.voteAverage {
+             ratingLabel.text = "Rating: \(rating)"
+         } else if let ratingRealm = movieFromRealm?.rating {
+             ratingLabel.text = "Rating: \(ratingRealm)"
+         }
+         
+         if let overview = movie?.overview {
+             descriptionLabel.text = overview
+         } else if let overviewRealm = movieFromRealm?.overview {
+             descriptionLabel.text = overviewRealm
+         }
+         
+         if let trailerId = movie?.id {
+             movieFromRealm?.trailer = trailerId
+         }
+    }
+    
+    private func loadPoster(imageName: String) {
+        backgroundUIImageView.kf.setImage(with: URL(string: Constants.Poster.defaultPath + imageName))
+    }
+    
+    func loadTrailer() {
+        if movie?.mediaType == "movie" {
+            NetworkManager().getMovieTrailer(movieId: movie?.id ?? 0) { trailer in
+                self.playerView.load(withVideoId: trailer.last?.key ?? "")
+                print("Load trailer \(String(describing: self.movie?.id ?? 0))")
+                print("Key: " + (trailer.last?.key ?? "Nil"))
+            }
+        } else if movie?.mediaType == "tv" {
+            NetworkManager().getTvTrailer(movieId: movie?.id ?? 0) { trailer in
+                self.playerView.load(withVideoId: trailer.last?.key ?? "")
+                print("Load trailer \(String(describing: self.movie?.id ?? 0))")
+                print("Key: " + (trailer.last?.key ?? "Nil"))
+            }
+        } else if movieFromRealm?.mediaType == "movie" {
+            NetworkManager().getMovieTrailer(movieId: movieFromRealm?.trailer ?? 0) { trailer in
+                self.playerView.load(withVideoId: trailer.first?.key ?? "")
+                print("Load trailer \(String(describing: self.movieFromRealm?.trailer ?? 0))")
+                print("Key: " + (trailer.last?.key ?? "Nil"))
+            }
+        } else {
+            NetworkManager().getTvTrailer(movieId: movieFromRealm?.trailer ?? 0) { trailer in
+                self.playerView.load(withVideoId: trailer.last?.key ?? "")
+                print("Load trailer \(String(describing: self.movieFromRealm?.trailer ?? 0))")
+                print("Key: " + (trailer.last?.key ?? "Nil"))
+            }
+        }
+    }
+}
+
+extension UIImageView {
+    func applyBlurEffect() {
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        addSubview(blurEffectView)
+    }
 }

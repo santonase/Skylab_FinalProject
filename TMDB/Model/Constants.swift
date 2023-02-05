@@ -22,7 +22,6 @@ struct Constants {
     }
     struct Nib {
         static let cell = "Cell"
-        static let savedMoviesViewController = "SavedMoviesViewController"
     }
     struct Poster {
         static let defaultPath = "https://image.tmdb.org/t/p/w1280"
