@@ -33,6 +33,7 @@ struct DataManager {
         if let mediaType = movie.mediaType {
             movieRealm.mediaType = mediaType
         }
+        
         try? realm?.write {
             realm?.add(movieRealm)
         }

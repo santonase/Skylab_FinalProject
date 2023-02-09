@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//MARK: Search movies
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard searchText.count != 0 else { return }
@@ -18,10 +18,9 @@ extension ViewController: UISearchBarDelegate {
             print("Searching TV")
             type = .tv
         }
-        
         NetworkManager().searchMedia(mediaType: type, search: searchText) { search in
             self.filteredData = search
             self.tableView.reloadData()
-        }        
+        }
     }
 }

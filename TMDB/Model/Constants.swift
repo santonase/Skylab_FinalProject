@@ -20,6 +20,10 @@ struct Constants {
         static let trendingMovie = "trending/movie/week?api_key="
         static let trandingTv = "trending/tv/week?api_key="
     }
+    
+    struct Search {
+        static let searchText = ""
+    }
     struct Nib {
         static let cell = "Cell"
     }

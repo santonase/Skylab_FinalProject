@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         
         nib()
         requestTrendMovies()
-        
+        self.hideKeyboardWhenTappedAround()
     }
     //MARK: Switch between movies and tv
     @IBAction func didChangeSegment(_ sender: Any) {
@@ -96,10 +96,12 @@ extension ViewController: UITableViewDelegate {
     
             if (segmentedControl.selectedSegmentIndex == 0) {
                 deteilsController.movie = filteredData[indexPath.row]
+                deteilsController.mediaType = "movie"
                 navigationController?.pushViewController(deteilsController, animated: true)
                 
             } else if (segmentedControl.selectedSegmentIndex == 1) {
                 deteilsController.movie = filteredData[indexPath.row]
+                deteilsController.mediaType = "tv"
                 navigationController?.pushViewController(deteilsController, animated: true)
             }
         }
@@ -112,4 +114,15 @@ extension ViewController: UITableViewDelegate {
 //            tableView.reloadData()
 //        }
 //    }
+}
+//MARK: Hide keyboard
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

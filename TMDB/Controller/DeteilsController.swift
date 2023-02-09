@@ -16,9 +16,10 @@ class DeteilsController: UIViewController {
     @IBOutlet weak var ReleaseLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
+    @IBOutlet weak var saveButton: UIButton!
     var movie: Media?
     var movieFromRealm: MovieRealm?
+    var mediaType = ""
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,15 +75,15 @@ extension DeteilsController {
     private func loadPoster(imageName: String) {
         backgroundUIImageView.kf.setImage(with: URL(string: Constants.Poster.defaultPath + imageName))
     }
-    
+        
     func loadTrailer() {
-        if movie?.mediaType == "movie" {
+        if mediaType == "movie" {
             NetworkManager().getMovieTrailer(movieId: movie?.id ?? 0) { trailer in
                 self.playerView.load(withVideoId: trailer.last?.key ?? "")
                 print("Load trailer \(String(describing: self.movie?.id ?? 0))")
                 print("Key: " + (trailer.last?.key ?? "Nil"))
             }
-        } else if movie?.mediaType == "tv" {
+        } else if mediaType == "tv" {
             NetworkManager().getTvTrailer(movieId: movie?.id ?? 0) { trailer in
                 self.playerView.load(withVideoId: trailer.last?.key ?? "")
                 print("Load trailer \(String(describing: self.movie?.id ?? 0))")
@@ -94,11 +95,25 @@ extension DeteilsController {
                 print("Load trailer \(String(describing: self.movieFromRealm?.trailer ?? 0))")
                 print("Key: " + (trailer.last?.key ?? "Nil"))
             }
-        } else {
+        } else if movieFromRealm?.mediaType == "tv" {
             NetworkManager().getTvTrailer(movieId: movieFromRealm?.trailer ?? 0) { trailer in
                 self.playerView.load(withVideoId: trailer.last?.key ?? "")
                 print("Load trailer \(String(describing: self.movieFromRealm?.trailer ?? 0))")
                 print("Key: " + (trailer.last?.key ?? "Nil"))
+            }
+        } else if (ViewController().searchBar != nil) {
+            if mediaType == "movie" {
+                NetworkManager().getMovieTrailer(movieId: movie?.id ?? 0) { trailer in
+                    self.playerView.load(withVideoId: trailer.last?.key ?? "")
+                    print("Load trailer \(String(describing: self.movie?.id ?? 0))")
+                    print("Key: " + (trailer.last?.key ?? "Nil"))
+                }
+            } else if mediaType == "tv" {
+                NetworkManager().getTvTrailer(movieId: movie?.id ?? 0) { trailer in
+                    self.playerView.load(withVideoId: trailer.last?.key ?? "")
+                    print("Load trailer \(String(describing: self.movie?.id ?? 0))")
+                    print("Key: " + (trailer.last?.key ?? "Nil"))
+                }
             }
         }
     }

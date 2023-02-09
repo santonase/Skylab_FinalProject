@@ -14,8 +14,6 @@ enum MediaType: String {
 
 // MARK: NetworkManager
 struct NetworkManager {
-    
-    
     // MARK: request trending movies
     func loadMovies(url: String, completion: @escaping([Media]) -> Void) {
         AF.request(url).responseDecodable(of: MediaModel.self) { response in
