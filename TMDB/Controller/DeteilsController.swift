@@ -78,41 +78,53 @@ extension DeteilsController {
         
     func loadTrailer() {
         if mediaType == "movie" {
-            NetworkManager().getMovieTrailer(movieId: movie?.id ?? 0) { trailer in
-                self.playerView.load(withVideoId: trailer.last?.key ?? "")
-                print("Load trailer \(String(describing: self.movie?.id ?? 0))")
-                print("Key: " + (trailer.last?.key ?? "Nil"))
+            NetworkManager().getMovieTrailer(movieId: movie?.id ?? 0) { id in
+                id.forEach { trailer in
+                    if trailer.type == "Trailer" || (trailer.type == "Teaser") {
+                        self.playerView.load(withVideoId: trailer.key)
+                    }
+                }
             }
         } else if mediaType == "tv" {
-            NetworkManager().getTvTrailer(movieId: movie?.id ?? 0) { trailer in
-                self.playerView.load(withVideoId: trailer.last?.key ?? "")
-                print("Load trailer \(String(describing: self.movie?.id ?? 0))")
-                print("Key: " + (trailer.last?.key ?? "Nil"))
+            NetworkManager().getTvTrailer(movieId: movie?.id ?? 0) { id in
+                id.forEach { trailer in
+                    if (trailer.type == "Trailer") || (trailer.type == "Teaser") {
+                        self.playerView.load(withVideoId: trailer.key)
+                    }
+                }
             }
-        } else if movieFromRealm?.mediaType == "movie" {
-            NetworkManager().getMovieTrailer(movieId: movieFromRealm?.trailer ?? 0) { trailer in
-                self.playerView.load(withVideoId: trailer.first?.key ?? "")
-                print("Load trailer \(String(describing: self.movieFromRealm?.trailer ?? 0))")
-                print("Key: " + (trailer.last?.key ?? "Nil"))
+        } else if movieFromRealm?.mediaType != nil {
+            NetworkManager().getMovieTrailer(movieId: movieFromRealm?.trailer ?? 0) { id in
+                id.forEach { trailer in
+                    if (trailer.type == "Trailer") ||  (trailer.type == "Teaser") {
+                        self.playerView.load(withVideoId: trailer.key)
+                        }
+                    }
+                }
+        } else if movieFromRealm?.mediaType != nil {
+            NetworkManager().getTvTrailer(movieId: movieFromRealm?.trailer ?? 0) { id in
+                id.forEach { trailer in
+                    if (trailer.type == "Trailer") ||  (trailer.type == "Teaser") {
+                        self.playerView.load(withVideoId: trailer.key)
+                    }
+                }
             }
-        } else if movieFromRealm?.mediaType == "tv" {
-            NetworkManager().getTvTrailer(movieId: movieFromRealm?.trailer ?? 0) { trailer in
-                self.playerView.load(withVideoId: trailer.last?.key ?? "")
-                print("Load trailer \(String(describing: self.movieFromRealm?.trailer ?? 0))")
-                print("Key: " + (trailer.last?.key ?? "Nil"))
-            }
-        } else if (ViewController().searchBar != nil) {
+        }else if (ViewController().searchBar != nil) {
             if mediaType == "movie" {
-                NetworkManager().getMovieTrailer(movieId: movie?.id ?? 0) { trailer in
-                    self.playerView.load(withVideoId: trailer.last?.key ?? "")
-                    print("Load trailer \(String(describing: self.movie?.id ?? 0))")
-                    print("Key: " + (trailer.last?.key ?? "Nil"))
+                NetworkManager().getMovieTrailer(movieId: movie?.id ?? 0) { id in
+                    id.forEach { trailer in
+                        if trailer.type == "Trailer" || (trailer.type == "Teaser") {
+                            self.playerView.load(withVideoId: trailer.key)
+                        }
+                    }
                 }
             } else if mediaType == "tv" {
-                NetworkManager().getTvTrailer(movieId: movie?.id ?? 0) { trailer in
-                    self.playerView.load(withVideoId: trailer.last?.key ?? "")
-                    print("Load trailer \(String(describing: self.movie?.id ?? 0))")
-                    print("Key: " + (trailer.last?.key ?? "Nil"))
+                NetworkManager().getTvTrailer(movieId: movie?.id ?? 0) { id in
+                    id.forEach { trailer in
+                        if (trailer.type == "Trailer") || (trailer.type == "Teaser") {
+                            self.playerView.load(withVideoId: trailer.key)
+                        }
+                    }
                 }
             }
         }
