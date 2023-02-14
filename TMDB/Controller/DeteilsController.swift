@@ -26,7 +26,10 @@ class DeteilsController: UIViewController {
         
         configureWithMovie()
         backgroundUIImageView.applyBlurEffect()
-        loadTrailer()
+        
+        DispatchQueue.global().async {
+            self.loadTrailer()
+        }
         playerView.layer.masksToBounds = true
         playerView.layer.cornerRadius = 10
     }
@@ -75,12 +78,12 @@ extension DeteilsController {
     private func loadPoster(imageName: String) {
         backgroundUIImageView.kf.setImage(with: URL(string: Constants.Poster.defaultPath + imageName))
     }
-        
+
     func loadTrailer() {
         if mediaType == "movie" {
             NetworkManager().getMovieTrailer(movieId: movie?.id ?? 0) { id in
                 id.forEach { trailer in
-                    if trailer.type == "Trailer" || (trailer.type == "Teaser") {
+                    if trailer.type == "Trailer" {
                         self.playerView.load(withVideoId: trailer.key)
                     }
                 }
@@ -93,15 +96,15 @@ extension DeteilsController {
                     }
                 }
             }
-        } else if movieFromRealm?.mediaType != nil {
+        } else if movieFromRealm?.mediaType == "movie" {
             NetworkManager().getMovieTrailer(movieId: movieFromRealm?.trailer ?? 0) { id in
                 id.forEach { trailer in
-                    if (trailer.type == "Trailer") ||  (trailer.type == "Teaser") {
+                    if trailer.type == "Trailer" {
                         self.playerView.load(withVideoId: trailer.key)
                         }
                     }
                 }
-        } else if movieFromRealm?.mediaType != nil {
+        } else if movieFromRealm?.mediaType == "tv" {
             NetworkManager().getTvTrailer(movieId: movieFromRealm?.trailer ?? 0) { id in
                 id.forEach { trailer in
                     if (trailer.type == "Trailer") ||  (trailer.type == "Teaser") {
@@ -109,11 +112,11 @@ extension DeteilsController {
                     }
                 }
             }
-        }else if (ViewController().searchBar != nil) {
+        } else if (ViewController().searchBar != nil) {
             if mediaType == "movie" {
                 NetworkManager().getMovieTrailer(movieId: movie?.id ?? 0) { id in
                     id.forEach { trailer in
-                        if trailer.type == "Trailer" || (trailer.type == "Teaser") {
+                        if trailer.type == "Trailer" {
                             self.playerView.load(withVideoId: trailer.key)
                         }
                     }

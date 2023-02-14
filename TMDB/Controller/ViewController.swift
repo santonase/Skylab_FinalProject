@@ -17,9 +17,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         nib()
-        requestTrendMovies()
+        
+        DispatchQueue.global().async {
+            self.requestTrendMovies()
+        }
+        
         self.hideKeyboardWhenTappedAround()
     }
     //MARK: Switch between movies and tv
