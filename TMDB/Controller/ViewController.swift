@@ -12,15 +12,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     var filteredData: [Media] = []
-    static var currentPage = 1
-    static var totalPages = 1
+    private var currentPage = 1
+    private var isLoadingList = false
+    let queueGlobal = DispatchQueue.global()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         nib()
         
-        DispatchQueue.global().async {
-            self.requestTrendMovies()
+        queueGlobal.async {
+                self.requestTrendMovies()
         }
         
         self.hideKeyboardWhenTappedAround()
@@ -111,9 +112,9 @@ extension ViewController: UITableViewDelegate {
     }
     
 //    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if indexPath.row == filteredData.count - 1, ViewController.currentPage < ViewController.totalPages {
-//            print("Next Page: \(ViewController.currentPage)")
-//            requestTrendMovies(page: ViewController.currentPage + 1)
+//        if indexPath.row == filteredData.count - 1, (currentPage != 0) {
+//            print("Next Page: \(currentPage)")
+//            requestTrendMovies(page: currentPage + 1)
 //            tableView.reloadData()
 //        }
 //    }

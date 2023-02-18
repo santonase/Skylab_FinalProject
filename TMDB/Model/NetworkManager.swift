@@ -24,8 +24,6 @@ struct NetworkManager {
     // MARK: request trending tv
     func loadTv(url: String, completion: @escaping([Media]) -> Void) {
         AF.request(url).responseDecodable(of: MediaModel.self) { response in
-            ViewController.currentPage = response.value?.page ?? 1
-            ViewController.totalPages = response.value?.totalPages ?? 1
             let mediaData = response
             completion(mediaData.value?.results ?? [])
         }

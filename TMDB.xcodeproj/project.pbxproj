@@ -13,6 +13,7 @@
 		F33CAECD2971620D007AF7B3 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F33CAECB2971620D007AF7B3 /* Cell.xib */; };
 		F33CAED329716BDD007AF7B3 /* mediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33CAED229716BDD007AF7B3 /* mediaModel.swift */; };
 		F34C3646299A5577007459D9 /* GenresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34C3645299A5577007459D9 /* GenresViewController.swift */; };
+		F37B0EA629A1299B0059BB56 /* GenresModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37B0EA529A1299A0059BB56 /* GenresModel.swift */; };
 		F37C5D87296EBCE800C8906F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C5D86296EBCE800C8906F /* AppDelegate.swift */; };
 		F37C5D89296EBCE800C8906F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C5D88296EBCE800C8906F /* SceneDelegate.swift */; };
 		F37C5D8B296EBCE800C8906F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C5D8A296EBCE800C8906F /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 		F33CAECB2971620D007AF7B3 /* Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
 		F33CAED229716BDD007AF7B3 /* mediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mediaModel.swift; sourceTree = "<group>"; };
 		F34C3645299A5577007459D9 /* GenresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresViewController.swift; sourceTree = "<group>"; };
+		F37B0EA529A1299A0059BB56 /* GenresModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresModel.swift; sourceTree = "<group>"; };
 		F37C5D83296EBCE800C8906F /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37C5D86296EBCE800C8906F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F37C5D88296EBCE800C8906F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 			path = mediaModel;
 			sourceTree = "<group>";
 		};
+		F37B0EA729A129A20059BB56 /* GenresModel */ = {
+			isa = PBXGroup;
+			children = (
+				F37B0EA529A1299A0059BB56 /* GenresModel.swift */,
+			);
+			path = GenresModel;
+			sourceTree = "<group>";
+		};
 		F37C5D7A296EBCE800C8906F = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +154,7 @@
 		F37C5D9D296EBDF000C8906F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F37B0EA729A129A20059BB56 /* GenresModel */,
 				F3DA629E2982F2F7003C6781 /* Realm */,
 				F3CB50D5298050FD0024969F /* TrailerModel */,
 				F33CAED129716BC8007AF7B3 /* mediaModel */,
@@ -311,6 +322,7 @@
 				F3BFA182297E9EFA00E9D685 /* DeteilsController.swift in Sources */,
 				F37C5D8B296EBCE800C8906F /* ViewController.swift in Sources */,
 				F37C5D87296EBCE800C8906F /* AppDelegate.swift in Sources */,
+				F37B0EA629A1299B0059BB56 /* GenresModel.swift in Sources */,
 				F37C5DA1296EBE3000C8906F /* NetworkManager.swift in Sources */,
 				F3E6F0952987CAD30012B80E /* SavedMoviesViewController.swift in Sources */,
 				F33CAED329716BDD007AF7B3 /* mediaModel.swift in Sources */,

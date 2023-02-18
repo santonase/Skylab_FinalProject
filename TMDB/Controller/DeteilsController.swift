@@ -23,13 +23,9 @@ class DeteilsController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureWithMovie()
         backgroundUIImageView.applyBlurEffect()
-        
-        DispatchQueue.global().async {
-            self.loadTrailer()
-        }
+        self.loadTrailer()
         playerView.layer.masksToBounds = true
         playerView.layer.cornerRadius = 10
     }
