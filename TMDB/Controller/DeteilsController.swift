@@ -79,7 +79,7 @@ extension DeteilsController {
         if mediaType == "movie" {
             NetworkManager().getMovieTrailer(movieId: movie?.id ?? 0) { id in
                 id.forEach { trailer in
-                    if trailer.type == "Trailer" {
+                    if (trailer.type == "Trailer") || (trailer.type == "Teaser") {
                         self.playerView.load(withVideoId: trailer.key)
                     }
                 }
@@ -95,7 +95,7 @@ extension DeteilsController {
         } else if movieFromRealm?.mediaType == "movie" {
             NetworkManager().getMovieTrailer(movieId: movieFromRealm?.trailer ?? 0) { id in
                 id.forEach { trailer in
-                    if trailer.type == "Trailer" {
+                    if trailer.type == "Trailer" || (trailer.type == "Teaser") {
                         self.playerView.load(withVideoId: trailer.key)
                         }
                     }
@@ -103,7 +103,7 @@ extension DeteilsController {
         } else if movieFromRealm?.mediaType == "tv" {
             NetworkManager().getTvTrailer(movieId: movieFromRealm?.trailer ?? 0) { id in
                 id.forEach { trailer in
-                    if (trailer.type == "Trailer") ||  (trailer.type == "Teaser") {
+                    if (trailer.type == "Trailer") || (trailer.type == "Teaser") {
                         self.playerView.load(withVideoId: trailer.key)
                     }
                 }
@@ -112,7 +112,7 @@ extension DeteilsController {
             if mediaType == "movie" {
                 NetworkManager().getMovieTrailer(movieId: movie?.id ?? 0) { id in
                     id.forEach { trailer in
-                        if trailer.type == "Trailer" {
+                        if (trailer.type == "Trailer") || (trailer.type == "Teaser") {
                             self.playerView.load(withVideoId: trailer.key)
                         }
                     }

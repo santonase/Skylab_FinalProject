@@ -52,12 +52,19 @@ struct NetworkManager {
         }
     }
     
-    func getTvTrailer(movieId: Int, completion: @escaping([TrailerResult]) -> Void) {
+    func getTvTrailer(movieId: Int, completion: @escaping([TrailerResult])-> Void) {
                 
         let url = "https://api.themoviedb.org/3/tv/\(movieId)/videos?api_key=513ec4b0669d007dc347e68ef5dff8fa&language=en-US"
         AF.request(url).responseDecodable(of: TrailerModel.self) { response in
             let mediaData = response.value?.results ?? []
             completion(mediaData)
+        }
+    }
+    
+    func loadPosters(url: String, completion: @escaping([Media]) -> Void) {
+        AF.request(url).responseDecodable(of: MediaModel.self) { response in
+            let mediaData = response
+            completion(mediaData.value?.results ?? [])
         }
     }
 }
