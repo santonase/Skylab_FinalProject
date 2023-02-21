@@ -11,9 +11,7 @@ import Kingfisher
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var posterImage: UIImageView!
-    
-//    var posterArray: [Media] = []
-    
+        
     public func configure(with model: String) {
             guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(model)") else {
                 return

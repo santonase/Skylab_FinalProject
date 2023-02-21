@@ -13,7 +13,7 @@ struct DataManager {
     func save(movie: Media?) {
         
         let movieRealm = MovieRealm()
-        
+        let isMovie = Bool()
         guard let movie = movie else { return }
         
         if let title = movie.title, (title).count > 0 {
@@ -40,6 +40,13 @@ struct DataManager {
         if let mediaType = movie.mediaType {
             movieRealm.mediaType = mediaType
         }
+        
+        if isMovie == true {
+            movieRealm.isMovie = true
+        } else {
+            movieRealm.isMovie = false
+        }
+
         
         try? realm?.write {
             realm?.add(movieRealm)

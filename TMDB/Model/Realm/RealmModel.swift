@@ -14,4 +14,5 @@ class MovieRealm: Object {
     @Persisted var posterPath = ""
     @Persisted var trailer = 0
     @Persisted var mediaType = ""
+    @Persisted var isMovie: Bool
 }

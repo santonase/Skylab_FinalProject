@@ -35,6 +35,10 @@ extension GenresViewController: UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         sectionTitle.count
     }
@@ -105,6 +109,4 @@ extension GenresViewController: UICollectionViewDataSource, UICollectionViewDele
         cell.configure(with: modelPoster)
         return cell
     }
-    
-    
 }

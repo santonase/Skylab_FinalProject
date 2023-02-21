@@ -79,7 +79,7 @@ extension DeteilsController {
         if mediaType == "movie" {
             NetworkManager().getMovieTrailer(movieId: movie?.id ?? 0) { id in
                 id.forEach { trailer in
-                    if (trailer.type == "Trailer") || (trailer.type == "Teaser") {
+                    if (trailer.type == "Trailer") {
                         self.playerView.load(withVideoId: trailer.key)
                     }
                 }
@@ -92,15 +92,15 @@ extension DeteilsController {
                     }
                 }
             }
-        } else if movieFromRealm?.mediaType == "movie" {
+        } else if movieFromRealm?.isMovie == true {
             NetworkManager().getMovieTrailer(movieId: movieFromRealm?.trailer ?? 0) { id in
                 id.forEach { trailer in
-                    if trailer.type == "Trailer" || (trailer.type == "Teaser") {
+                    if trailer.type == "Trailer" {
                         self.playerView.load(withVideoId: trailer.key)
                         }
                     }
                 }
-        } else if movieFromRealm?.mediaType == "tv" {
+        } else if movieFromRealm?.isMovie == false {
             NetworkManager().getTvTrailer(movieId: movieFromRealm?.trailer ?? 0) { id in
                 id.forEach { trailer in
                     if (trailer.type == "Trailer") || (trailer.type == "Teaser") {
@@ -108,25 +108,28 @@ extension DeteilsController {
                     }
                 }
             }
-        } else if (ViewController().searchBar != nil) {
-            if mediaType == "movie" {
-                NetworkManager().getMovieTrailer(movieId: movie?.id ?? 0) { id in
-                    id.forEach { trailer in
-                        if (trailer.type == "Trailer") || (trailer.type == "Teaser") {
-                            self.playerView.load(withVideoId: trailer.key)
-                        }
-                    }
-                }
-            } else if mediaType == "tv" {
-                NetworkManager().getTvTrailer(movieId: movie?.id ?? 0) { id in
-                    id.forEach { trailer in
-                        if (trailer.type == "Trailer") || (trailer.type == "Teaser") {
-                            self.playerView.load(withVideoId: trailer.key)
-                        }
-                    }
-                }
-            }
         }
+        
+//        else if (ViewController().searchBar != nil) {
+//            if mediaType == "movie" {
+//                NetworkManager().getMovieTrailer(movieId: movie?.id ?? 0) { id in
+//                    id.forEach { trailer in
+//                        if (trailer.type == "Trailer") {
+//                            self.playerView.load(withVideoId: trailer.key)
+//                        }
+//                    }
+//                }
+//            }
+//            else if mediaType == "tv" {
+//                NetworkManager().getTvTrailer(movieId: movie?.id ?? 0) { id in
+//                    id.forEach { trailer in
+//                        if (trailer.type == "Trailer") || (trailer.type == "Teaser") {
+//                            self.playerView.load(withVideoId: trailer.key)
+//                        }
+//                    }
+//                }
+//            }
+//        }
     }
 }
 

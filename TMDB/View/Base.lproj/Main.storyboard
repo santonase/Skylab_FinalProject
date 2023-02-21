@@ -29,11 +29,11 @@
             </objects>
             <point key="canvasLocation" x="-2056" y="-223"/>
         </scene>
-        <!--Genres-->
+        <!--Navigation Controller-->
         <scene sceneID="Oh6-ep-Uql">
             <objects>
                 <navigationController id="et0-xE-tL7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Genres" id="yip-0q-9Vk"/>
+                    <tabBarItem key="tabBarItem" selectedImage="list.bullet" catalog="system" systemItem="mostViewed" id="yip-0q-9Vk"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XU0-pU-5Im">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -94,18 +94,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CollectionViewTableViewCell" rowHeight="198" id="7hg-Lz-sKl" customClass="CollectionViewTableViewCell" customModule="TMDB" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="198"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CollectionViewTableViewCell" rowHeight="200" id="7hg-Lz-sKl" customClass="CollectionViewTableViewCell" customModule="TMDB" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7hg-Lz-sKl" id="n80-x1-IEd">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="198"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2ua-BG-51J">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="198"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r4A-ME-kZm">
-                                                        <size key="itemSize" width="187" height="150"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r4A-ME-kZm">
+                                                        <size key="itemSize" width="120" height="200"/>
+                                                        <size key="estimatedItemSize" width="120" height="200"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -366,6 +367,7 @@
     </scenes>
     <resources>
         <image name="bookmark" catalog="system" width="110" height="128"/>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -36,6 +36,4 @@ extension CollectionViewTableViewCell: UICollectionViewDataSource, UICollectionV
         cell.configure(with: modelPoster)
         return cell
     }
-    
-    
 }
