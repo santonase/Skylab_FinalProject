@@ -31,7 +31,7 @@ class DeteilsController: UIViewController {
     }
     
     @IBAction func saveMovieToRealm(_ sender: Any) {
-        DataManager.shared.save(movie: movie)
+        DataManager.shared.save(movie: movie, isMovie: true)
         print("Save movie")
     }
 }
@@ -109,27 +109,6 @@ extension DeteilsController {
                 }
             }
         }
-        
-//        else if (ViewController().searchBar != nil) {
-//            if mediaType == "movie" {
-//                NetworkManager().getMovieTrailer(movieId: movie?.id ?? 0) { id in
-//                    id.forEach { trailer in
-//                        if (trailer.type == "Trailer") {
-//                            self.playerView.load(withVideoId: trailer.key)
-//                        }
-//                    }
-//                }
-//            }
-//            else if mediaType == "tv" {
-//                NetworkManager().getTvTrailer(movieId: movie?.id ?? 0) { id in
-//                    id.forEach { trailer in
-//                        if (trailer.type == "Trailer") || (trailer.type == "Teaser") {
-//                            self.playerView.load(withVideoId: trailer.key)
-//                        }
-//                    }
-//                }
-//            }
-//        }
     }
 }
 

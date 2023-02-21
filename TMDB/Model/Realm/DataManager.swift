@@ -10,10 +10,11 @@ struct DataManager {
     static let shared = DataManager()
     private let realm = try? Realm()
     private init() {}
-    func save(movie: Media?) {
+    let isMovie = Bool()
+
+    func save(movie: Media?, isMovie: Bool) {
         
         let movieRealm = MovieRealm()
-        let isMovie = Bool()
         guard let movie = movie else { return }
         
         if let title = movie.title, (title).count > 0 {
