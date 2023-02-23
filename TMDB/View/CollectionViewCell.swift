@@ -8,11 +8,19 @@
 import UIKit
 import Kingfisher
 
+
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var posterImage: UIImageView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        posterImage.image =  nil
+    
+    }
         
     public func configure(with model: String) {
+
             guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(model)") else {
                 return
             }

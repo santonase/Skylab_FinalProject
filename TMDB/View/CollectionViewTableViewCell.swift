@@ -9,15 +9,13 @@ import UIKit
 
 class CollectionViewTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var CollectionView: UICollectionView!
-    var posterArray: [Media] = []
-
-    func configure(with poster: [Media]) {
-        self.posterArray = poster
-        DispatchQueue.main.async { [weak self] in
-            self?.CollectionView.reloadData()
+    @IBOutlet weak var collectionView: UICollectionView! {
+        didSet {
+            collectionView.delegate = self
+            collectionView.dataSource = self
         }
     }
+    var posterArray: [Media] = []
     
 }
 
@@ -27,7 +25,7 @@ extension CollectionViewTableViewCell: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = CollectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as? CollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as? CollectionViewCell else {
             return UICollectionViewCell()
         }
         guard let modelPoster = posterArray[indexPath.row].posterPath else {

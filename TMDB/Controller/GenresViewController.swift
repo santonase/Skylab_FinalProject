@@ -56,36 +56,41 @@ extension GenresViewController: UITableViewDelegate, UITableViewDataSource {
         case Sections.TrendingMovies.rawValue:
             let url = "https://api.themoviedb.org/3/movie/popular?api_key=513ec4b0669d007dc347e68ef5dff8fa&language=en-US&page=1"
             NetworkManager().loadPosters(url: url) { response in
-                self.posterArray = response
-                cell.configure(with: response)
+//                self.posterArray = response
+                cell.posterArray = response
+                cell.collectionView.reloadData()
         }
 // case 2:
         case Sections.TrendingTV.rawValue:
             let url = "https://api.themoviedb.org/3/tv/popular?api_key=513ec4b0669d007dc347e68ef5dff8fa&language=en-US&page=1"
             NetworkManager().loadPosters(url: url) { response in
-                self.posterArray = response
-                cell.configure(with: response)
+//                self.posterArray = response
+                cell.posterArray = response
+                cell.collectionView.reloadData()
         }
 // case 3:
         case Sections.PopularMovies.rawValue:
             let url = "https://api.themoviedb.org/3/movie/popular?api_key=513ec4b0669d007dc347e68ef5dff8fa&language=en-US&page=1"
             NetworkManager().loadPosters(url: url) { response in
-                self.posterArray = response
-                cell.configure(with: response)
+//                self.posterArray = response
+                cell.posterArray = response
+                cell.collectionView.reloadData()
         }
 // case 4:
         case Sections.PopularTV.rawValue:
             let url = "https://api.themoviedb.org/3/tv/popular?api_key=513ec4b0669d007dc347e68ef5dff8fa&language=en-US&page=1"
             NetworkManager().loadPosters(url: url) { response in
-                self.posterArray = response
-                cell.configure(with: response)
+//                self.posterArray = response
+                cell.posterArray = response
+                cell.collectionView.reloadData()
         }
 // case 5:
         case Sections.TopRated.rawValue:
             let url = "https://api.themoviedb.org/3/movie/top_rated?api_key=513ec4b0669d007dc347e68ef5dff8fa&language=en-US&page=1"
             NetworkManager().loadPosters(url: url) { response in
-                self.posterArray = response
-                cell.configure(with: response)
+//                self.posterArray = response
+                cell.posterArray = response
+                cell.collectionView.reloadData()
         }
         default:
             return UITableViewCell()
@@ -94,19 +99,4 @@ extension GenresViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension GenresViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return posterArray.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as? CollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        guard let modelPoster = posterArray[indexPath.row].posterPath else {
-            return UICollectionViewCell()
-        }
-        cell.configure(with: modelPoster)
-        return cell
-    }
-}
+

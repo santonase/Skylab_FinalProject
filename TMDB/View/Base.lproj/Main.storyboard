@@ -131,10 +131,6 @@
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
-                                                    <connections>
-                                                        <outlet property="dataSource" destination="t0c-hy-Eoh" id="QH9-y1-CCm"/>
-                                                        <outlet property="delegate" destination="t0c-hy-Eoh" id="vaL-a6-Fce"/>
-                                                    </connections>
                                                 </collectionView>
                                             </subviews>
                                             <constraints>
@@ -145,7 +141,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="CollectionView" destination="2ua-BG-51J" id="JUd-6D-4cS"/>
+                                            <outlet property="collectionView" destination="2ua-BG-51J" id="JUd-6D-4cS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
