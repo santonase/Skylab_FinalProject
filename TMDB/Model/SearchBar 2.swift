@@ -23,7 +23,4 @@ extension ViewController: UISearchBarDelegate {
             self.tableView.reloadData()
         }
     }
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
-    }
 }
