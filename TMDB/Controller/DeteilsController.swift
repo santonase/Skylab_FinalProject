@@ -15,8 +15,8 @@ class DeteilsController: UIViewController {
     @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var ReleaseLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var overviewTextView: UITextView!
     var movie: Media?
     var movieFromRealm: MovieRealm?
     var mediaType = ""
@@ -61,9 +61,9 @@ extension DeteilsController {
          }
          
          if let overview = movie?.overview {
-             descriptionLabel.text = overview
+             overviewTextView.text = overview
          } else if let overviewRealm = movieFromRealm?.overview {
-             descriptionLabel.text = overviewRealm
+             overviewTextView.text = overviewRealm
          }
          
          if let trailerId = movie?.id {

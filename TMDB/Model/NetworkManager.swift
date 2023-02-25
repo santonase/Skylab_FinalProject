@@ -14,15 +14,19 @@ enum MediaType: String {
 
 // MARK: NetworkManager
 struct NetworkManager {
+    var currentPage = 1
+    
     // MARK: request trending movies
-    func loadMovies(url: String, completion: @escaping([Media]) -> Void) {
+    func loadMovies(page: Int, completion: @escaping([Media]) -> Void) {
+        let url = Constants.Network.baseURL + Constants.Network.trendingMovie + Constants.Network.keyAPI + "&page=\(page)"
         AF.request(url).responseDecodable(of: MediaModel.self) { response in
             let mediaData = response
             completion(mediaData.value?.results ?? [])
         }
     }
     // MARK: request trending tv
-    func loadTv(url: String, completion: @escaping([Media]) -> Void) {
+    func loadTv(completion: @escaping([Media]) -> Void) {
+        let url = Constants.Network.baseURL + Constants.Network.trandingTv + Constants.Network.keyAPI
         AF.request(url).responseDecodable(of: MediaModel.self) { response in
             let mediaData = response
             completion(mediaData.value?.results ?? [])
@@ -30,9 +34,7 @@ struct NetworkManager {
     }
     // MARK: request search
     func searchMedia(mediaType: MediaType, search: String, competion: @escaping([Media]) -> Void) {
-        
         let url = "https://api.themoviedb.org/3/search/\(mediaType)?api_key=513ec4b0669d007dc347e68ef5dff8fa&language=en-US&query=\(search.replacingOccurrences(of: " ", with: "%20"))&page=1&include_adult=false"
-        
         AF.request(url).responseDecodable(of: MediaModel.self) { response in
             let mediaData = response
             competion(mediaData.value?.results ?? [])
@@ -67,4 +69,12 @@ struct NetworkManager {
             completion(mediaData.value?.results ?? [])
         }
     }
+    
+//    func loadMorePages(page: Int) {
+//        for _ in 1 ..< 10 {
+//            let lastItem = filteredData.count
+//            let newItem = lastItem + 1
+//            filteredData.count + newItem
+//        }
+//    }
 }

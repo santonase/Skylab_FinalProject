@@ -12,8 +12,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     var filteredData: [Media] = []
-    private var currentPage = 1
-    private var isLoadingList = false
     let queueGlobal = DispatchQueue.global()
     
     override func viewDidLoad() {
@@ -21,7 +19,7 @@ class ViewController: UIViewController {
         nib()
         
         queueGlobal.async {
-                self.requestTrendMovies()
+            self.requestTrendMovies(page: NetworkManager().currentPage)
         }
         
         self.hideKeyboardWhenTappedAround()
@@ -29,7 +27,7 @@ class ViewController: UIViewController {
     //MARK: Switch between movies and tv
     @IBAction func didChangeSegment(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
-        case 0: requestTrendMovies()
+        case 0: requestTrendMovies(page: NetworkManager().currentPage)
                 print(Constants.Print.segmentedIndexZero)
         case 1: requestTrendTv()
                 print(Constants.Print.segmentedIndexOne)
@@ -48,10 +46,8 @@ extension ViewController {
     }
     
     //MARK: request trending movies
-    func requestTrendMovies() {
-        
-        let url = Constants.Network.baseURL + Constants.Network.trendingMovie + Constants.Network.keyAPI
-        NetworkManager().loadMovies(url: url) { mediaArray in
+    func requestTrendMovies(page: Int) {
+        NetworkManager().loadMovies(page: NetworkManager().currentPage) { mediaArray in
             self.filteredData = mediaArray
             self.tableView.reloadData()
             print(Constants.Print.getTrendMovies)
@@ -60,9 +56,7 @@ extension ViewController {
     
     //MARK: request trending tv
     func requestTrendTv() {
-        
-        let url = Constants.Network.baseURL + Constants.Network.trandingTv + Constants.Network.keyAPI
-        NetworkManager().loadTv(url: url) { mediaArray in
+        NetworkManager().loadTv() { mediaArray in
             self.filteredData = mediaArray
             self.tableView.reloadData()
             print(Constants.Print.getTrendTv)
@@ -111,13 +105,13 @@ extension ViewController: UITableViewDelegate {
         }
     }
     
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if indexPath.row == filteredData.count - 1, (currentPage != 0) {
-//            print("Next Page: \(currentPage)")
-//            requestTrendMovies(page: currentPage + 1)
-//            tableView.reloadData()
-//        }
-//    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastItem = filteredData.count - 1
+        if indexPath.row == lastItem {
+//            loadMorePages(page: currentPage)
+            
+        }
+    }
 }
 //MARK: Hide keyboard
 extension UIViewController {

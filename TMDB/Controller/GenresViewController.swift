@@ -54,17 +54,15 @@ extension GenresViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
 // case 1:
         case Sections.TrendingMovies.rawValue:
-            let url = "https://api.themoviedb.org/3/movie/popular?api_key=513ec4b0669d007dc347e68ef5dff8fa&language=en-US&page=1"
+            let url = Constants.Network.baseURL + Constants.Network.trendingMovie + Constants.Network.keyAPI
             NetworkManager().loadPosters(url: url) { response in
-//                self.posterArray = response
                 cell.posterArray = response
                 cell.collectionView.reloadData()
         }
 // case 2:
         case Sections.TrendingTV.rawValue:
-            let url = "https://api.themoviedb.org/3/tv/popular?api_key=513ec4b0669d007dc347e68ef5dff8fa&language=en-US&page=1"
+            let url = Constants.Network.baseURL + Constants.Network.trandingTv + Constants.Network.keyAPI
             NetworkManager().loadPosters(url: url) { response in
-//                self.posterArray = response
                 cell.posterArray = response
                 cell.collectionView.reloadData()
         }
@@ -72,7 +70,6 @@ extension GenresViewController: UITableViewDelegate, UITableViewDataSource {
         case Sections.PopularMovies.rawValue:
             let url = "https://api.themoviedb.org/3/movie/popular?api_key=513ec4b0669d007dc347e68ef5dff8fa&language=en-US&page=1"
             NetworkManager().loadPosters(url: url) { response in
-//                self.posterArray = response
                 cell.posterArray = response
                 cell.collectionView.reloadData()
         }
@@ -80,7 +77,6 @@ extension GenresViewController: UITableViewDelegate, UITableViewDataSource {
         case Sections.PopularTV.rawValue:
             let url = "https://api.themoviedb.org/3/tv/popular?api_key=513ec4b0669d007dc347e68ef5dff8fa&language=en-US&page=1"
             NetworkManager().loadPosters(url: url) { response in
-//                self.posterArray = response
                 cell.posterArray = response
                 cell.collectionView.reloadData()
         }
@@ -88,7 +84,6 @@ extension GenresViewController: UITableViewDelegate, UITableViewDataSource {
         case Sections.TopRated.rawValue:
             let url = "https://api.themoviedb.org/3/movie/top_rated?api_key=513ec4b0669d007dc347e68ef5dff8fa&language=en-US&page=1"
             NetworkManager().loadPosters(url: url) { response in
-//                self.posterArray = response
                 cell.posterArray = response
                 cell.collectionView.reloadData()
         }
