@@ -14,11 +14,10 @@ enum MediaType: String {
 
 // MARK: NetworkManager
 struct NetworkManager {
-    var currentPage = 1
     
     // MARK: request trending movies
-    func loadMovies(page: Int, completion: @escaping([Media]) -> Void) {
-        let url = Constants.Network.baseURL + Constants.Network.trendingMovie + Constants.Network.keyAPI + "&page=\(page)"
+    func loadMovies(completion: @escaping([Media]) -> Void) {
+        let url = Constants.Network.baseURL + Constants.Network.trendingMovie + Constants.Network.keyAPI
         AF.request(url).responseDecodable(of: MediaModel.self) { response in
             let mediaData = response
             completion(mediaData.value?.results ?? [])

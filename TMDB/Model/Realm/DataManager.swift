@@ -10,14 +10,13 @@ struct DataManager {
     static let shared = DataManager()
     private let realm = try? Realm()
     private init() {}
-    let isMovie = Bool()
 
     func save(movie: Media?, isMovie: Bool) {
         
         let movieRealm = MovieRealm()
         guard let movie = movie else { return }
         
-        if let title = movie.title, (title).count > 0 {
+        if let title = movie.title, !title.isEmpty {
             movieRealm.title = title
         } else if let title = movie.name {
             movieRealm.title = title
@@ -42,11 +41,16 @@ struct DataManager {
             movieRealm.mediaType = mediaType
         }
         
+        if let id = movie.id {
+            movieRealm.id = id
+        }
+        
         if isMovie == true {
             movieRealm.isMovie = true
         } else {
             movieRealm.isMovie = false
         }
+        
 
         
         try? realm?.write {
@@ -61,5 +65,26 @@ struct DataManager {
             movies.append(movie)
         }
         return movies
+    }
+    
+    func isMovieInRealm(movie: Media?) -> Bool {
+        if ((realm?.object(ofType: MovieRealm.self, forPrimaryKey: movie?.id)) != nil) {
+            return true
+        } else {
+           return false
+        }
+    }
+    
+    func getFilm(movie: Media) -> MovieRealm {
+        let movie = (realm?.object(ofType: MovieRealm.self, forPrimaryKey: movie.id))!
+        return movie
+    }
+    
+    func deleteMedia(movie: MovieRealm) {
+        if let movie = realm?.object(ofType: MovieRealm.self, forPrimaryKey: movie.id) {
+            try? realm?.write {
+                realm?.delete(movie)
+            }
+        }
     }
 }

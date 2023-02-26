@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         nib()
         
         queueGlobal.async {
-            self.requestTrendMovies(page: NetworkManager().currentPage)
+            self.requestTrendMovies()
         }
         
         self.hideKeyboardWhenTappedAround()
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     //MARK: Switch between movies and tv
     @IBAction func didChangeSegment(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
-        case 0: requestTrendMovies(page: NetworkManager().currentPage)
+        case 0: requestTrendMovies()
                 print(Constants.Print.segmentedIndexZero)
         case 1: requestTrendTv()
                 print(Constants.Print.segmentedIndexOne)
@@ -46,8 +46,8 @@ extension ViewController {
     }
     
     //MARK: request trending movies
-    func requestTrendMovies(page: Int) {
-        NetworkManager().loadMovies(page: NetworkManager().currentPage) { mediaArray in
+    func requestTrendMovies() {
+        NetworkManager().loadMovies() { mediaArray in
             self.filteredData = mediaArray
             self.tableView.reloadData()
             print(Constants.Print.getTrendMovies)

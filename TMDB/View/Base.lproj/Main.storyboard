@@ -308,10 +308,10 @@
                                 <rect key="frame" x="301.66666666666669" y="365" width="83.333333333333314" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="bookmark" catalog="system" title="Save">
-                                    <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="saveMovieToRealm:" destination="tQb-Do-BW7" eventType="touchUpInside" id="Le3-Vl-by4"/>
+                                    <action selector="saveMovieToRealm:" destination="tQb-Do-BW7" eventType="touchUpInside" id="UIb-9g-ugP"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="duI-UJ-aP3">
@@ -354,7 +354,7 @@
                         <outlet property="overviewTextView" destination="duI-UJ-aP3" id="87G-mV-f9N"/>
                         <outlet property="playerView" destination="9nK-hE-GCf" id="8Gf-QS-PWo"/>
                         <outlet property="ratingLabel" destination="nnd-4m-ToF" id="8V4-1J-qHw"/>
-                        <outlet property="saveButton" destination="oMh-3B-3cE" id="bIg-mT-iW7"/>
+                        <outlet property="saveAndDeleteButton" destination="oMh-3B-3cE" id="U28-Yn-v4F"/>
                         <outlet property="titleLabel" destination="VZY-0n-C2n" id="LRE-02-DEz"/>
                     </connections>
                 </viewController>

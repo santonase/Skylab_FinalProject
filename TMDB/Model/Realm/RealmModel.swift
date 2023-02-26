@@ -7,7 +7,7 @@
 import RealmSwift
 
 class MovieRealm: Object {
-    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted(primaryKey: true) var id: Int?
     @Persisted var title = ""
     @Persisted var overview = ""
     @Persisted var rating = 0.0

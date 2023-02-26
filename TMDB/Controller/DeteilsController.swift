@@ -15,25 +15,71 @@ class DeteilsController: UIViewController {
     @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var ReleaseLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var overviewTextView: UITextView!
+        
+    @IBOutlet weak var saveAndDeleteButton: UIButton!
+    
+    
     var movie: Media?
     var movieFromRealm: MovieRealm?
     var mediaType = ""
+    var isMediaInRealm: Bool?
+    var mediaFromRealm: MovieRealm?
         
     override func viewDidLoad() {
         super.viewDidLoad()
         configureWithMovie()
         backgroundUIImageView.applyBlurEffect()
-        self.loadTrailer()
         playerView.layer.masksToBounds = true
         playerView.layer.cornerRadius = 10
+
+        realmCheck(media: movie)
+        
     }
     
+    
+    func realmCheck(media: Media?) {
+        if media != nil {
+            if DataManager.shared.isMovieInRealm(movie: media) {
+                isMediaInRealm = true
+                saveAndDeleteButton.setTitle(isMediaInRealm! ? "Delete" : "Save", for: .normal)
+            } else {
+                isMediaInRealm = false
+                saveAndDeleteButton.setTitle(isMediaInRealm! ? "Delete" : "Save", for: .normal)
+            }
+            } else {
+                isMediaInRealm = true
+                saveAndDeleteButton.setTitle(isMediaInRealm! ? "Delete" : "Save", for: .normal)
+            }
+        }
+    
     @IBAction func saveMovieToRealm(_ sender: Any) {
-        DataManager.shared.save(movie: movie, isMovie: true)
-        print("Save movie")
+        saveAndDeleteButton.setTitle(isMediaInRealm! ? "Save" : "Delete", for: .normal)
+        switch isMediaInRealm {
+        case true:
+            if let movie = movie {
+                let movie = DataManager.shared.getFilm(movie: movie)
+                DataManager.shared.deleteMedia(movie: movie)
+                print("Delete media")
+            } else if let mediaFromRealm = mediaFromRealm {
+                DataManager.shared.deleteMedia(movie: mediaFromRealm)
+                navigationController?.popToRootViewController(animated: true)
+                print("Delete realm media")
+            }
+            isMediaInRealm = false
+        case false:
+            if mediaType == "movie" {
+                DataManager.shared.save(movie: movie, isMovie: true)
+            } else if mediaType == "tv" {
+                DataManager.shared.save(movie: movie, isMovie: false)
+            }
+           print("Save media")
+            isMediaInRealm = true
+        default:
+            break
+        }
     }
+    
 }
 
 extension DeteilsController {
@@ -69,6 +115,8 @@ extension DeteilsController {
          if let trailerId = movie?.id {
              movieFromRealm?.trailer = trailerId
          }
+         
+         loadTrailer()
     }
     
     private func loadPoster(imageName: String) {
