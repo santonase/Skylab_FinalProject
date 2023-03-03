@@ -58,7 +58,7 @@ struct DataManager {
         }
     }
     
-    func getMovie() -> [MovieRealm] {
+    func getMovie() -> [MovieRealm] { 
         var movies = [MovieRealm]()
         guard let movieResults = realm?.objects(MovieRealm.self) else { return [] }
         for movie in movieResults {

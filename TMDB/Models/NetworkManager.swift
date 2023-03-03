@@ -17,7 +17,7 @@ struct NetworkManager {
     
     // MARK: request trending movies
     func loadMovies(completion: @escaping([Media]) -> Void) {
-        let url = Constants.Network.baseURL + Constants.Network.trendingMovie + Constants.Network.keyAPI
+        let url = Constants.baseURL + Constants.trendingMovie + Constants.keyAPI
         AF.request(url).responseDecodable(of: MediaModel.self) { response in
             let mediaData = response
             completion(mediaData.value?.results ?? [])
@@ -25,7 +25,7 @@ struct NetworkManager {
     }
     // MARK: request trending tv
     func loadTv(completion: @escaping([Media]) -> Void) {
-        let url = Constants.Network.baseURL + Constants.Network.trandingTv + Constants.Network.keyAPI
+        let url = Constants.baseURL + Constants.trandingTv + Constants.keyAPI
         AF.request(url).responseDecodable(of: MediaModel.self) { response in
             let mediaData = response
             completion(mediaData.value?.results ?? [])

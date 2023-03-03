@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CollectionViewTableViewCell: UITableViewCell {
+class MediaTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -15,20 +15,19 @@ class CollectionViewTableViewCell: UITableViewCell {
             collectionView.dataSource = self
         }
     }
-    var posterArray: [Media] = []
-    
+    var viewModel = ViewModelMediaTableViewCell()
 }
 
-extension CollectionViewTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
+extension MediaTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return posterArray.count
+        viewModel.posterArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as? CollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.collectionViewCell, for: indexPath) as? PostersCollectionViewCell else {
             return UICollectionViewCell()
         }
-        guard let modelPoster = posterArray[indexPath.row].posterPath else {
+        guard let modelPoster = viewModel.posterArray[indexPath.row].posterPath else {
             return UICollectionViewCell()
         }
         cell.configure(with: modelPoster)

@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class Cell: UITableViewCell {
+class TrendingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleUILabel: UILabel!
     @IBOutlet weak var overviewUILabel: UILabel!
@@ -21,14 +21,14 @@ class Cell: UITableViewCell {
     
     func configureWith(media: Media) {
         titleUILabel.text = (media.originalTitle ?? "").count > 0 ? media.originalTitle : media.name
-        overviewUILabel.text = media.overview ?? "no overview"
+        overviewUILabel.text = media.overview ?? Constants.noOverview
         ratingUILabel.text = "\(media.voteAverage ?? 0.0)"
-        loadPoster(imageName: media.posterPath ?? "no poster")
+        loadPoster(imageName: media.posterPath ?? Constants.noPoster)
+        
     }
     
     private func loadPoster(imageName: String) {
-        posterUIImageView.kf.setImage(with: URL(string: Constants.Poster.defaultPath + imageName))
-        print("Load poster: \(String(describing: titleUILabel.text ?? ""))")
+        posterUIImageView.kf.setImage(with: URL(string: Constants.defaultPath + imageName))
     }
     
     func configureWith(movie: MovieRealm) {

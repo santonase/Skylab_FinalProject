@@ -94,7 +94,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CollectionViewTableViewCell" rowHeight="200" id="7hg-Lz-sKl" customClass="CollectionViewTableViewCell" customModule="TMDB" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CollectionViewTableViewCell" rowHeight="200" id="7hg-Lz-sKl" customClass="MediaTableViewCell" customModule="TMDB" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7hg-Lz-sKl" id="n80-x1-IEd">
@@ -112,7 +112,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="cpq-Ul-uKc" customClass="CollectionViewCell" customModule="TMDB" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="cpq-Ul-uKc" customClass="PostersCollectionViewCell" customModule="TMDB" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="K7B-dX-fa5">
@@ -172,7 +172,7 @@
         <!--Top Rated-->
         <scene sceneID="CYu-gZ-UlR">
             <objects>
-                <viewController id="dU1-yc-aIe" customClass="ViewController" customModule="TMDB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dU1-yc-aIe" customClass="TrendingViewController" customModule="TMDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O5Y-xY-RKf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -265,10 +265,10 @@
             </objects>
             <point key="canvasLocation" x="-1729" y="1250"/>
         </scene>
-        <!--Deteils Controller-->
+        <!--Details View Controller-->
         <scene sceneID="LeT-xf-cau">
             <objects>
-                <viewController storyboardIdentifier="DeteilsController" id="tQb-Do-BW7" customClass="DeteilsController" customModule="TMDB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsController" id="tQb-Do-BW7" customClass="DetailsViewController" customModule="TMDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i3m-al-4kd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

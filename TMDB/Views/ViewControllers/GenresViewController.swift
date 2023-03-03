@@ -12,10 +12,7 @@ import UIKit
 class GenresViewController: UIViewController {
     
     @IBOutlet weak var GenresTableView: UITableView!
-    var posterArray: [Media] = []
-
-    var sectionTitle: [String] = ["Trending Movies", "Trending TV", "Popular Movies", "Popular TV", "Top rated"]
-    
+    var viewModel = ViewModelGenresViewController()
     enum Sections: Int {
         case TrendingMovies = 0
         case TrendingTV = 1
@@ -40,51 +37,52 @@ extension GenresViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        sectionTitle.count
+        viewModel.sectionTitle.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        sectionTitle[section]
+        viewModel.sectionTitle[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionViewTableViewCell") as? CollectionViewTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.collectionViewTableViewCell) as? MediaTableViewCell else {
             return UITableViewCell()
         }
         switch indexPath.section {
 // case 1:
         case Sections.TrendingMovies.rawValue:
-            let url = Constants.Network.baseURL + Constants.Network.trendingMovie + Constants.Network.keyAPI
+            let url = Constants.baseURL + Constants.trendingMovie + Constants.keyAPI
             NetworkManager().loadPosters(url: url) { response in
-                cell.posterArray = response
+                cell.viewModel.posterArray = response
                 cell.collectionView.reloadData()
         }
 // case 2:
         case Sections.TrendingTV.rawValue:
-            let url = Constants.Network.baseURL + Constants.Network.trandingTv + Constants.Network.keyAPI
+            let url = Constants.baseURL + Constants.trandingTv + Constants.keyAPI
             NetworkManager().loadPosters(url: url) { response in
-                cell.posterArray = response
+                cell.viewModel.posterArray = response
                 cell.collectionView.reloadData()
         }
 // case 3:
         case Sections.PopularMovies.rawValue:
-            let url = "https://api.themoviedb.org/3/movie/popular?api_key=513ec4b0669d007dc347e68ef5dff8fa&language=en-US&page=1"
+            let url = Constants.baseURL + Constants.popularMovies + Constants.keyAPI
             NetworkManager().loadPosters(url: url) { response in
-                cell.posterArray = response
+                cell.viewModel.posterArray = response
                 cell.collectionView.reloadData()
         }
 // case 4:
         case Sections.PopularTV.rawValue:
-            let url = "https://api.themoviedb.org/3/tv/popular?api_key=513ec4b0669d007dc347e68ef5dff8fa&language=en-US&page=1"
+            let url = Constants.baseURL + Constants.popularTv + Constants.keyAPI
+
             NetworkManager().loadPosters(url: url) { response in
-                cell.posterArray = response
+                cell.viewModel.posterArray = response
                 cell.collectionView.reloadData()
         }
 // case 5:
         case Sections.TopRated.rawValue:
-            let url = "https://api.themoviedb.org/3/movie/top_rated?api_key=513ec4b0669d007dc347e68ef5dff8fa&language=en-US&page=1"
+            let url = Constants.baseURL + Constants.topRated + Constants.keyAPI
             NetworkManager().loadPosters(url: url) { response in
-                cell.posterArray = response
+                cell.viewModel.posterArray = response
                 cell.collectionView.reloadData()
         }
         default:

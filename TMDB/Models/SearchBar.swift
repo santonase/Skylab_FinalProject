@@ -7,22 +7,22 @@
 
 import UIKit
 //MARK: Search movies
-extension ViewController: UISearchBarDelegate {
+extension TrendingViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard searchText.count != 0 else { return }
         var type: MediaType = .movie
         if segmentedControl.selectedSegmentIndex == 0 {
-            print("Searching Movies")
             type = .movie
         } else {
-            print("Searching TV")
             type = .tv
         }
+        //search movies and series
         NetworkManager().searchMedia(mediaType: type, search: searchText) { search in
-            self.filteredData = search
+            self.viewModel.filteredData = search
             self.tableView.reloadData()
         }
     }
+    //press button Search for hide keyboard
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
     }

@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 
-class CollectionViewCell: UICollectionViewCell {
+class PostersCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var posterImage: UIImageView!
     
@@ -20,7 +20,6 @@ class CollectionViewCell: UICollectionViewCell {
     }
         
     public func configure(with model: String) {
-
             guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(model)") else {
                 return
             }
