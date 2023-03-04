@@ -75,13 +75,13 @@ class DetailsViewController: UIViewController {
 extension DetailsViewController {
     
      func configureWithMovie() {
-         if let movieTitle = (viewModel.movie?.title ?? "").count > 0 ? viewModel.movie?.title : viewModel.movie?.name {
+         if let movieTitle = (viewModel.movie?.title ?? Constants.nothing).count > 0 ? viewModel.movie?.title : viewModel.movie?.name {
              titleLabel.text = movieTitle
          } else if let movieRealmTitle = viewModel.movieFromRealm?.title {
              titleLabel.text = movieRealmTitle
          }
                   
-         loadPoster(imageName: ((viewModel.movie?.posterPath ?? "").count > 0 ? viewModel.movie?.posterPath : viewModel.movieFromRealm?.posterPath) ?? "")
+         loadPoster(imageName: ((viewModel.movie?.posterPath ?? Constants.nothing).count > 0 ? viewModel.movie?.posterPath : viewModel.movieFromRealm?.posterPath) ?? Constants.nothing)
 
          if let releaseDate = viewModel.movie?.releaseDate?.count ?? 0 > 0 ? viewModel.movie?.releaseDate : viewModel.movie?.firstAirDate {
              ReleaseLabel.text = releaseDate

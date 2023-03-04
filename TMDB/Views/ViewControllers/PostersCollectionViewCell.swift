@@ -20,7 +20,7 @@ class PostersCollectionViewCell: UICollectionViewCell {
     }
         
     public func configure(with model: String) {
-            guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(model)") else {
+        guard let url = URL(string: Constants.posterPath + "\(model)") else {
                 return
             }
         posterImage.kf.setImage(with: url)

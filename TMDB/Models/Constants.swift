@@ -24,7 +24,10 @@ struct Constants {
     static let rating = "Rating:"
     static let trailer = "Trailer"
     static let teaser = "Teaser"
+    static let nothing = "nothing"
     
+    
+    static let posterPath = "https://image.tmdb.org/t/p/w500"
     static let baseURL = "https://api.themoviedb.org/3/"
     static let keyAPI = "513ec4b0669d007dc347e68ef5dff8fa"
     static let trendingMovie = "trending/movie/week?api_key="
